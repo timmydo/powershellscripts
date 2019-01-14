@@ -1,9 +1,11 @@
 
 $array = "None", "Comment", "Keyword", "String", "Operator", "Variable", "Command", "Parameter", "Type", "Number", "Member"
+$colors = @{}
+$colors['String'] = [System.ConsoleColor]::Magenta
+$colors['Variable'] = [System.ConsoleColor]::Cyan
 
-ForEach ($value in $array) {
-    Set-PSReadlineOption -TokenKind $value -ForegroundColor Black -BackgroundColor White
-}
+Set-PSReadLineOption -Colors @{Operator = "Black"; Parameter = "Black"; Command = "Black";String = "Black"}
+
 
 $Host.PrivateData.WarningForegroundColor = $Host.UI.RawUI.ForegroundColor
 $Host.PrivateData.WarningBackgroundColor = $Host.UI.RawUI.BackgroundColor
